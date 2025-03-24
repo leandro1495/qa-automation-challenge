@@ -76,7 +76,7 @@ pytest api_tests/
 
 Para ejecutar una prueba específica:
 ```bash
-pytest api_tests/test_users.py::test_create_user
+pytest api_tests/tests/test_users.py
 ```
 
 ### Uso de Fixtures
