@@ -121,3 +121,5 @@ Las pruebas de UI se implementan utilizando **Selenium** y **Behave**, definiend
 Para ejecutar las pruebas de UI definidas con Behave:
 ```bash
 behave tests/web_tests/features/
+
+---
