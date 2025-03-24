@@ -71,12 +71,12 @@ pip install -r requirements.txt
 ### Ejecución de Pruebas
 Para ejecutar todas las pruebas:
 ```bash
-pytest tests/api_tests/
+pytest api_tests/
 ```
 
 Para ejecutar una prueba específica:
 ```bash
-pytest tests/api_tests/test_users.py::test_create_user
+pytest api_tests/test_users.py::test_create_user
 ```
 
 ### Uso de Fixtures
@@ -119,6 +119,6 @@ Las pruebas de UI se implementan utilizando **Selenium** y **Behave**, definiend
 
 Para ejecutar las pruebas de UI definidas con Behave:
 ```bash
-behave tests/web_tests/features/
+behave web_tests/features/
 
 ---
