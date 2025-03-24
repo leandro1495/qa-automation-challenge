@@ -1,6 +1,7 @@
 from behave import given, when, then
 from selenium import webdriver
-from tests.web_tests.page_objects import HomePage, SearchResultsPage
+from web_tests.page_objects import HomePage, SearchResultsPage
+
 
 @given('el usuario está en la página de inicio de Wikipedia')
 def step_open_wikipedia(context):
@@ -11,10 +12,12 @@ def step_open_wikipedia(context):
     context.results_page = SearchResultsPage(context.driver)
     print("Wikipedia cargada correctamente!")
 
+
 @when('busca "{keyword}"')
 def step_search_keyword(context, keyword):
     print(f"Buscando: {keyword}")
     context.home_page.search(keyword)
+
 
 @then('el primer resultado debe contener "{expected_text}"')
 def step_verify_search_result(context, expected_text):

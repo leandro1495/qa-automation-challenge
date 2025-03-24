@@ -174,4 +174,4 @@ cython_debug/
 .pypirc
 
 # Entorno-virtual
-venv-pinapp/
+venv/

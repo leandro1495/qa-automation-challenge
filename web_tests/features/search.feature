@@ -1,5 +1,5 @@
 Feature: Búsqueda en Wikipedia
-  Como usuario quiero buscar información en Wikipedia 
+  Como usuario quiero buscar información en Wikipedia
   para obtener artículos relevantes
 
   Scenario: Búsqueda de un término válido

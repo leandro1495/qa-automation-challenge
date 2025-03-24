@@ -1,7 +1,6 @@
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from tests.web_tests.base_page import BasePage
+from web_tests.base_page import BasePage
+
 
 class HomePage(BasePage):
     SEARCH_BOX = (By.NAME, "search")
@@ -14,6 +13,7 @@ class HomePage(BasePage):
     def search(self, keyword):
         self.find_element(self.SEARCH_BOX).send_keys(keyword)
         self.find_element(self.SEARCH_BUTTON).click()
+
 
 class SearchResultsPage(BasePage):
     FIRST_HEADING = (By.ID, "firstHeading")

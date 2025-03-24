@@ -1,12 +1,14 @@
 import requests
 import pytest
-from .config.config import BASE_URL
+from api_tests.config.config import BASE_URL
+
 
 @pytest.fixture(scope="module")
 def session():
     """Crea una sesión para reutilizar conexiones."""
     with requests.Session() as s:
         yield s
+
 
 @pytest.fixture
 def new_user(session):
@@ -18,6 +20,7 @@ def new_user(session):
     yield user
     session.delete(f"{BASE_URL}/users/{user['id']}")  # Cleanup
 
+
 def test_get_users(session):
     """Prueba para obtener la lista de usuarios"""
     response = session.get(f"{BASE_URL}/users?page=2")
@@ -25,6 +28,7 @@ def test_get_users(session):
     json_data = response.json()
     assert "data" in json_data
     assert len(json_data["data"]) > 0  # Verificamos que haya usuarios
+
 
 @pytest.mark.parametrize("name, job", [
     ("morpheus", "leader"),
@@ -39,6 +43,7 @@ def test_create_user(session, name, job):
     assert response_data["name"] == name
     assert response_data["job"] == job
 
+
 def test_update_user(session, new_user):
     """Prueba para actualizar un usuario existente"""
     updated_data = {"name": "morpheus", "job": "zion resident"}
@@ -47,6 +52,7 @@ def test_update_user(session, new_user):
     response_data = response.json()
     assert response_data["name"] == updated_data["name"]
     assert response_data["job"] == updated_data["job"]
+
 
 def test_delete_user(session, new_user):
     """Prueba para eliminar un usuario"""
