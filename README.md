@@ -90,7 +90,6 @@ pytest tests/api_tests/test_users.py::test_create_user
 
 ## 2. Pruebas de UI en la Web
 
-```markdown
 # Pruebas de UI en la Web
 
 Las pruebas de UI se implementan utilizando **Selenium** y **Behave**, definiendo escenarios en formato **Gherkin**.
