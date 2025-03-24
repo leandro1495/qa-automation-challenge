@@ -120,5 +120,64 @@ Las pruebas de UI se implementan utilizando **Selenium** y **Behave**, definiend
 Para ejecutar las pruebas de UI definidas con Behave:
 ```bash
 behave web_tests/features/
-
+```
 ---
+
+## 3.Pruebas de UI en la App Móvil
+
+## Caso de Uso: Marcado de un Número en el Marcador Telefónico
+
+### Descripción del Caso de Prueba
+Objetivo: Verificar que un usuario pueda marcar correctamente un número en la aplicación de teléfono en un dispositivo Android utilizando la interfaz de la app (marcador telefónico).
+
+### Escenario
+El usuario ingresa un número (por ejemplo, "123456789") en el teclado numérico de la app de teléfono y se asegura de que el número aparezca correctamente en la pantalla del dispositivo sin ningún formato adicional.
+
+### Pasos:
+1. Abrir la app de teléfono en un dispositivo Android.
+2. Acceder al teclado numérico para ingresar los dígitos.
+3. Ingresar el número "123456789" en el teclado numérico, verificando que cada tecla se presione correctamente.
+4. Verificar que el número ingresado en la pantalla del dispositivo sea igual al número esperado sin formato adicional (sin paréntesis, espacios ni guiones).
+
+## Herramientas Utilizadas
+
+* Appium: Para la automatización de pruebas móviles en dispositivos Android.
+* pytest: Framework de testing para ejecutar las pruebas.
+* Python: Lenguaje de programación utilizado para escribir las pruebas.
+* AppiumBy: Utilizado para localizar los elementos en la app móvil.
+
+**Nota:** Se podría utilizar una biblioteca de expresiones regulares para limpiar la entrada (eliminar caracteres no numéricos) si fuera necesario validar un número con formato.
+
+## Estructura del Proyecto
+```bash
+├── mobile_tests/
+│    └── config/
+│          └── capabilities.py # Contiene dic de la app a testear
+│    └── pages/
+│          └── dialer_page.py   # Página que encapsula la lógica de interacción con la app de teléfono
+│    └── tests/
+│           └── test_dialer.py  # Contiene el test para marcar el número en la app
+```
+
+## Como ejecutar las pruebas
+
+### 1. Iniciar el servidor de Appium: Asegúrate de tener Appium corriendo en tu máquina. Si no lo tienes, puedes instalarlo con el siguiente comando:
+```bash
+npm install -g appium
+```
+Luego, inicia el servidor de Appium ejecutando(Host Local):
+```bash
+appium -p 4724
+```
+
+### 2. Ejecutar las pruebas: Puedes ejecutar las pruebas móviles con pytest usando el siguiente comando
+```bash
+pytest mobile_tests/tests
+```
+
+### 3. Ver los resultados: El resultado de las pruebas se mostrará en la terminal. Si todo está configurado correctamente, deberías ver un mensaje de éxito si la prueba pasa:
+```bash
+✅ Test completado con éxito
+```
+
+
